@@ -1,26 +1,39 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <app-hello
+      :msg="messageFromApp"
+      :contenu="contentFromApp"
+      :costOfApples="appleCostFromApp"
+      :costOfBananas="bananaCostFromApp"
+      :costOfCoconuts="coconutCostFromApp"
+    ></app-hello>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    // eslint-disable-next-line vue/no-unused-components
+    'app-hello': HelloWorld
+  },
+  data() {
+    return {
+      messageFromApp: 'Bonjour depuis App.vue',
+      contentFromApp: 'Contenu personnalisé depuis App.vue',
+      appleCostFromApp: 6,
+      bananaCostFromApp: 2,
+      coconutCostFromApp: 8
+    };
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  padding: 20px;
 }
 </style>
